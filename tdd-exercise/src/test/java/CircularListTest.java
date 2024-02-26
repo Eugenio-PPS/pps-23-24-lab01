@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 import tdd.CircularList;
 import tdd.CircularListImpl;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The test suite for testing the CircularList implementation
@@ -31,5 +32,19 @@ public class CircularListTest {
         assertEquals(1, this.list.size());
     }
 
+    @Test
+    void nextElementOfEmptyListIsEmptyOptional() {
+        assertTrue(this.list.next().isEmpty());
+    }
+
+    @Test
+    void nextElementIsLastAddedElement() {
+        this.list.add(42);
+        var element = this.list.next();
+        assertAll(
+                () -> assertTrue(element.isPresent()),
+                () -> assertEquals(42, this.list.next().get())
+        );
+    }
 
 }
