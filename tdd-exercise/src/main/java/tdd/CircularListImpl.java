@@ -28,14 +28,19 @@ public class CircularListImpl implements CircularList {
         return this.size() == 0;
     }
 
-    @Override
-    public Optional<Integer> next() {
+    private Optional<Integer> skip(int skip) {
         if(this.isEmpty()) {
             return Optional.empty();
         } else {
-            this.position = (this.position + 1) % this.size();
+            this.position = (this.position + skip) % this.size();
             return Optional.of(this.storage.get(this.position));
         }
+
+    }
+
+    @Override
+    public Optional<Integer> next() {
+        return skip(1);
     }
 
     @Override
