@@ -43,7 +43,7 @@ public class CircularListTest {
         var element = this.list.next();
         assertAll(
                 () -> assertTrue(element.isPresent()),
-                () -> assertEquals(42, this.list.next().get())
+                () -> assertEquals(42, element.get())
         );
     }
 
@@ -53,4 +53,27 @@ public class CircularListTest {
         var _el = this.list.next();
         assertEquals(42, this.list.next().get());
     }
+
+    @Test
+    void previousElementOfEmptyListIsEmptyOptional() {
+        assertTrue(this.list.previous().isEmpty());
+    }
+
+    @Test
+    void previousElementIsLastAddedElement() {
+        this.list.add(42);
+        var element = this.list.previous();
+        assertAll(
+                () -> assertTrue(element.isPresent()),
+                () -> assertEquals(42, element.get())
+        );
+    }
+
+    @Test
+    void doublePreviousInSingleElementListIsEqualToInsertedValue() {
+        this.list.add(42);
+        var _el = this.list.next();
+        assertEquals(42, this.list.previous().get());
+    }
+
 }
