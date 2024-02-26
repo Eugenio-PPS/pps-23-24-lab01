@@ -47,4 +47,10 @@ public class CircularListTest {
         );
     }
 
+    @Test
+    void doubleNextInSingleElementListIsEqualToInsertedValue() {
+        this.list.add(42);
+        var _el = this.list.next();
+        assertEquals(42, this.list.next().get());
+    }
 }
