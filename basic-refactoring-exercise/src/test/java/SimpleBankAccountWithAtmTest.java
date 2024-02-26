@@ -7,10 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleBankAccountWithAtmTest {
     private static AccountHolder ACCOUNT_HOLDER = new AccountHolder("John", "Doe", 1);
+    private static double ACCOUNT_BALANCE = 0.0;
     private SimpleBankAccountWithAtm bankAccount;
     @BeforeEach
     void initialise() {
-        this.bankAccount = new SimpleBankAccountWithAtm(ACCOUNT_HOLDER);
+        this.bankAccount = new SimpleBankAccountWithAtm(ACCOUNT_HOLDER, ACCOUNT_BALANCE);
     }
 
     @Test
@@ -18,5 +19,8 @@ public class SimpleBankAccountWithAtmTest {
         assertEquals(ACCOUNT_HOLDER, this.bankAccount.getHolder());
     }
 
-    void
+    @Test
+    void balanceIsCorrectlyInitialised() {
+        assertEquals(ACCOUNT_BALANCE, this.bankAccount.getBalance());
+    }
 }
