@@ -20,6 +20,11 @@ public class CircularListTest {
     }
 
     @Test
+    void newlyCreatedListIsEmpty() {
+        assertEquals(0, this.list.size());
+    }
+
+    @Test
     void addElementIncreasesListLength() {
         this.list.add(42);
         assertEquals(1, this.list.size());
