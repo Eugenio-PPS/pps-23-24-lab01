@@ -6,6 +6,7 @@ import tdd.CircularList;
 import tdd.CircularListImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * The test suite for testing the CircularList implementation
@@ -21,7 +22,7 @@ public class CircularListTest {
 
     @Test
     void newlyCreatedListIsEmpty() {
-        assertEquals(0, this.list.size());
+        assertTrue(this.list.isEmpty());
     }
 
     @Test
