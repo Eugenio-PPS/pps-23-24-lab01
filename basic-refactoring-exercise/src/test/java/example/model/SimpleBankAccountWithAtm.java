@@ -1,9 +1,14 @@
 package example.model;
 
 public class SimpleBankAccountWithAtm implements BankAccount {
+    private final AccountHolder accountHolder;
+
+    public SimpleBankAccountWithAtm(final AccountHolder accountHolder) {
+        this.accountHolder = accountHolder;
+    }
     @Override
     public AccountHolder getHolder() {
-        return null;
+        return this.accountHolder;
     }
 
     @Override
