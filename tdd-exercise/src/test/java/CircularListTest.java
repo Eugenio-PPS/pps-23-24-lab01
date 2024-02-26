@@ -112,4 +112,30 @@ public class CircularListTest {
         );
     }
 
+    @Test
+    void backAndForth() {
+        this.list.add(1);
+        this.list.add(2);
+        this.list.add(3);
+
+        int val;
+        val = this.list.next().get();
+        val = this.list.next().get();
+        assertEquals(1, this.list.previous().get());
+    }
+
+    @Test
+    void backAndForthAtBoundaries() {
+        this.list.add(1);
+        this.list.add(2);
+        this.list.add(3);
+
+        int val;
+        val = this.list.next().get();
+        val = this.list.next().get();
+        val = this.list.next().get();
+        val = this.list.next().get();
+        assertEquals(3, this.list.previous().get());
+    }
+
 }
