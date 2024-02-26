@@ -48,13 +48,6 @@ public class CircularListTest {
     }
 
     @Test
-    void doubleNextInSingleElementListIsEqualToInsertedValue() {
-        this.list.add(42);
-        var _el = this.list.next();
-        assertEquals(42, this.list.next().get());
-    }
-
-    @Test
     void previousElementOfEmptyListIsEmptyOptional() {
         assertTrue(this.list.previous().isEmpty());
     }
@@ -70,10 +63,53 @@ public class CircularListTest {
     }
 
     @Test
-    void doublePreviousInSingleElementListIsEqualToInsertedValue() {
-        this.list.add(42);
-        var _el = this.list.next();
-        assertEquals(42, this.list.previous().get());
+    void multipleNextOrderIsPreserved() {
+        this.list.add(1);
+        this.list.add(2);
+        this.list.add(3);
+
+        assertAll(
+                () -> assertEquals(1, this.list.next().get()),
+                () -> assertEquals(2, this.list.next().get()),
+                () -> assertEquals(3, this.list.next().get())
+        );
+    }
+
+    @Test
+    void multipleNextWraparound() {
+        this.list.add(1);
+        this.list.add(2);
+
+        assertAll(
+                () -> assertEquals(1, this.list.next().get()),
+                () -> assertEquals(2, this.list.next().get()),
+                () -> assertEquals(1, this.list.next().get())
+        );
+    }
+
+    @Test
+    void multiplePreviousOrderIsPreserved() {
+        this.list.add(1);
+        this.list.add(2);
+        this.list.add(3);
+
+        assertAll(
+                () -> assertEquals(3, this.list.previous().get()),
+                () -> assertEquals(2, this.list.previous().get()),
+                () -> assertEquals(1, this.list.previous().get())
+        );
+    }
+
+    @Test
+    void multiplePreviousWraparound() {
+        this.list.add(1);
+        this.list.add(2);
+
+        assertAll(
+                () -> assertEquals(2, this.list.previous().get()),
+                () -> assertEquals(1, this.list.previous().get()),
+                () -> assertEquals(2, this.list.previous().get())
+        );
     }
 
 }
