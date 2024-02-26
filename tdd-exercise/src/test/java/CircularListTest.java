@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import tdd.CircularList;
 import tdd.CircularListImpl;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * The test suite for testing the CircularList implementation
  */
@@ -16,5 +18,12 @@ public class CircularListTest {
     void initialise() {
         this.list = new CircularListImpl();
     }
+
+    @Test
+    void addElementIncreasesListLength() {
+        this.list.add(42);
+        assertEquals(1, this.list.size());
+    }
+
 
 }

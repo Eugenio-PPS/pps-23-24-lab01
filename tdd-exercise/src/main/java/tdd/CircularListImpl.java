@@ -1,16 +1,25 @@
 package tdd;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class CircularListImpl implements CircularList {
+
+    private List<Integer> storage;
+
+    public CircularListImpl() {
+        this.storage = new ArrayList<Integer>();
+    }
+
     @Override
     public void add(int element) {
-
+        this.storage.add(element);
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.storage.size();
     }
 
     @Override
