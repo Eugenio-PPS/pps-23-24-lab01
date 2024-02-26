@@ -23,4 +23,31 @@ public class SimpleBankAccountWithAtmTest {
     void balanceIsCorrectlyInitialised() {
         assertEquals(ACCOUNT_BALANCE, this.bankAccount.getBalance());
     }
+    @Test
+    void testDeposit() {
+        bankAccount.deposit(ACCOUNT_HOLDER.getId(), 100);
+        assertEquals(100, bankAccount.getBalance());
+    }
+
+    @Test
+    void testWrongDeposit() {
+        bankAccount.deposit(ACCOUNT_HOLDER.getId(), 100);
+        bankAccount.deposit(2, 50);
+        assertEquals(100, bankAccount.getBalance());
+    }
+
+    @Test
+    void testWithdraw() {
+        bankAccount.deposit(ACCOUNT_HOLDER.getId(), 100);
+        bankAccount.withdraw(ACCOUNT_HOLDER.getId(), 70);
+        assertEquals(30, bankAccount.getBalance());
+    }
+
+    @Test
+    void testWrongWithdraw() {
+        bankAccount.deposit(ACCOUNT_HOLDER.getId(), 100);
+        bankAccount.withdraw(2, 70);
+        assertEquals(100, bankAccount.getBalance());
+    }
+
 }
