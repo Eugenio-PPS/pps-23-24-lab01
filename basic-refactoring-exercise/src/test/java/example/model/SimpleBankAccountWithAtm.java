@@ -1,21 +1,19 @@
 package example.model;
 
 public class SimpleBankAccountWithAtm implements BankAccount {
-    private final AccountHolder accountHolder;
-    private final double balance;
+    private final BankAccount account;
 
     public SimpleBankAccountWithAtm(final AccountHolder accountHolder, final double balance) {
-        this.accountHolder = accountHolder;
-        this.balance = balance;
+        this.account = new SimpleBankAccount(accountHolder, balance);
     }
     @Override
     public AccountHolder getHolder() {
-        return this.accountHolder;
+        return this.account.getHolder();
     }
 
     @Override
     public double getBalance() {
-        return this.balance;
+        return this.account.getBalance();
     }
 
     @Override
