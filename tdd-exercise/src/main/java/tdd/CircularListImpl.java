@@ -10,7 +10,7 @@ public class CircularListImpl implements CircularList {
     private Optional<Integer> position = Optional.empty();
 
     public CircularListImpl() {
-        this.storage = new ArrayList<Integer>();
+        this.storage = new ArrayList<>();
     }
 
     @Override
@@ -60,6 +60,6 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public void reset() {
-
+        this.position = Optional.empty();
     }
 }

@@ -1,11 +1,7 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tdd.CircularList;
 import tdd.CircularListImpl;
-
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -136,6 +132,16 @@ public class CircularListTest {
         val = this.list.next().get();
         val = this.list.next().get();
         assertEquals(3, this.list.previous().get());
+    }
+
+    @Test
+    void resetReturnsAtTheBeginningOfTheList() {
+        this.list.add(1);
+        this.list.add(2);
+
+        this.list.next().get();
+        this.list.reset();
+        assertEquals(1, this.list.next().get());
     }
 
 }
