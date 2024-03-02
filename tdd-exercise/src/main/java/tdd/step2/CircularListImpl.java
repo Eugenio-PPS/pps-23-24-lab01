@@ -2,7 +2,7 @@ package tdd.step2;
 
 import java.util.*;
 
-final public class CircularListImpl implements CircularList {
+public final class CircularListImpl implements CircularList {
 
     private List<Integer> storage;
     private Optional<Integer> position = Optional.empty();
