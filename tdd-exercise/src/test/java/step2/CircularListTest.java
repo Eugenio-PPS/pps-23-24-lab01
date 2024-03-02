@@ -118,4 +118,18 @@ public class CircularListTest {
         );
     }
 
+    @Test
+    public void multipleIteratorsDoNotInfluenceEachOther() {
+        this.list.add(1);
+        this.list.add(2);
+        this.list.add(3);
+
+        var iter1 = this.list.forwardIterator();
+        var iter2 = this.list.forwardIterator();
+        assertAll(
+                () -> assertEquals(1, iter1.next()),
+                () -> assertEquals(1, iter2.next())
+        );
+    }
+
 }
