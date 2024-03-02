@@ -2,7 +2,7 @@ package tdd.step2;
 
 import java.util.*;
 
-public class CircularListImpl implements CircularList {
+final public class CircularListImpl implements CircularList {
 
     private List<Integer> storage;
     private Optional<Integer> position = Optional.empty();
@@ -12,7 +12,7 @@ public class CircularListImpl implements CircularList {
         BACKWARDS,
     }
 
-    public class CircularListIterator implements Iterator {
+    final private class CircularListIterator implements Iterator {
 
         private CircularListImpl list;
         private Optional<Integer> position = Optional.empty();
