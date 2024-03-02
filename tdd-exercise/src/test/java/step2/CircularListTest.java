@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import tdd.step2.CircularList;
 import tdd.step2.CircularListImpl;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -130,6 +132,11 @@ public class CircularListTest {
                 () -> assertEquals(1, iter1.next()),
                 () -> assertEquals(1, iter2.next())
         );
+    }
+
+    @Test
+    public void emptyListIteratorThrowsNoSuchElementException() {
+        assertThrows(NoSuchElementException.class,() -> this.list.forwardIterator().next());
     }
 
 }

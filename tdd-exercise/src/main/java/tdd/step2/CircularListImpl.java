@@ -1,9 +1,6 @@
 package tdd.step2;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class CircularListImpl implements CircularList {
 
@@ -45,6 +42,9 @@ public class CircularListImpl implements CircularList {
         }
 
         private int skip() {
+            if(!this.hasNext()) {
+                throw new NoSuchElementException();
+            }
             if(this.position.isEmpty()) {
                 throw new IllegalStateException("skip() was called with an uninitialised position!");
             }
