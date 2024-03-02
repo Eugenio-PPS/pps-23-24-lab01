@@ -1,8 +1,9 @@
-package tdd;
+package tdd.step1;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import tdd.CircularList;
 
 public class CircularListImpl implements CircularList {
 

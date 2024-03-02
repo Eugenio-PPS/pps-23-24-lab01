@@ -1,7 +1,9 @@
+package step1;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tdd.CircularList;
-import tdd.CircularListImpl;
+import tdd.step1.CircularListImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,28 +15,28 @@ public class CircularListTest {
     private CircularList list;
 
     @BeforeEach
-    void initialise() {
+    public void initialise() {
         this.list = new CircularListImpl();
     }
 
     @Test
-    void newlyCreatedListIsEmpty() {
+    public void newlyCreatedListIsEmpty() {
         assertTrue(this.list.isEmpty());
     }
 
     @Test
-    void addElementIncreasesListLength() {
+    public void addElementIncreasesListLength() {
         this.list.add(42);
         assertEquals(1, this.list.size());
     }
 
     @Test
-    void nextElementOfEmptyListIsEmptyOptional() {
+    public void nextElementOfEmptyListIsEmptyOptional() {
         assertTrue(this.list.next().isEmpty());
     }
 
     @Test
-    void nextElementIsLastAddedElement() {
+    public void nextElementIsLastAddedElement() {
         this.list.add(42);
         var element = this.list.next();
         assertAll(
@@ -44,12 +46,12 @@ public class CircularListTest {
     }
 
     @Test
-    void previousElementOfEmptyListIsEmptyOptional() {
+    public void previousElementOfEmptyListIsEmptyOptional() {
         assertTrue(this.list.previous().isEmpty());
     }
 
     @Test
-    void previousElementIsLastAddedElement() {
+    public void previousElementIsLastAddedElement() {
         this.list.add(42);
         var element = this.list.previous();
         assertAll(
@@ -59,7 +61,7 @@ public class CircularListTest {
     }
 
     @Test
-    void multipleNextOrderIsPreserved() {
+    public void multipleNextOrderIsPreserved() {
         this.list.add(1);
         this.list.add(2);
         this.list.add(3);
@@ -72,7 +74,7 @@ public class CircularListTest {
     }
 
     @Test
-    void multipleNextWraparound() {
+    public void multipleNextWraparound() {
         this.list.add(1);
         this.list.add(2);
 
@@ -84,7 +86,7 @@ public class CircularListTest {
     }
 
     @Test
-    void multiplePreviousOrderIsPreserved() {
+    public void multiplePreviousOrderIsPreserved() {
         this.list.add(1);
         this.list.add(2);
         this.list.add(3);
@@ -97,7 +99,7 @@ public class CircularListTest {
     }
 
     @Test
-    void multiplePreviousWraparound() {
+    public void multiplePreviousWraparound() {
         this.list.add(1);
         this.list.add(2);
 
@@ -109,7 +111,7 @@ public class CircularListTest {
     }
 
     @Test
-    void backAndForth() {
+    public void backAndForth() {
         this.list.add(1);
         this.list.add(2);
         this.list.add(3);
@@ -121,7 +123,7 @@ public class CircularListTest {
     }
 
     @Test
-    void backAndForthAtBoundaries() {
+    public void backAndForthAtBoundaries() {
         this.list.add(1);
         this.list.add(2);
         this.list.add(3);
@@ -135,7 +137,8 @@ public class CircularListTest {
     }
 
     @Test
-    void resetReturnsAtTheBeginningOfTheList() {
+    public void resetReturnsAtTheBeginningOfTheList() {
+    public void resetReturnsAtTheBeginningOfTheList() {
         this.list.add(1);
         this.list.add(2);
 
