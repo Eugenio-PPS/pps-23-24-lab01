@@ -39,11 +39,11 @@ public final class FilteredCircularListImpl implements CircularList {
         list.reset();
     }
 
-    public Optional<Integer> filteredNext(Function<Integer, Boolean> test) {
+    public Optional<Integer> filteredNext(Function<Integer, Boolean> filter) {
         Optional<Integer> result = Optional.empty();
         for(int i = 0; i < this.size(); i++) {
             Optional<Integer> element = this.next();
-            if(element.isPresent() && test.apply(element.get())){
+            if(element.isPresent() && filter.apply(element.get())){
                 result = element;
                 break;
             }
