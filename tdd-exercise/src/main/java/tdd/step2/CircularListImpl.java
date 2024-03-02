@@ -12,7 +12,7 @@ public final class CircularListImpl implements CircularList {
         BACKWARDS,
     }
 
-    final private class CircularListIterator implements Iterator {
+    private final class CircularListIterator implements Iterator {
 
         private CircularListImpl list;
         private Optional<Integer> position = Optional.empty();
