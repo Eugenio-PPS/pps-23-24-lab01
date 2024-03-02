@@ -40,10 +40,14 @@ public final class FilteredCircularListImpl implements CircularList {
     }
 
     public Optional<Integer> filteredNext(Function<Integer, Boolean> test) {
-        Optional<Integer> element = Optional.empty();
-        while (element.isEmpty() || !test.apply(element.get())) {
-            element = this.next();
+        Optional<Integer> result = Optional.empty();
+        for(int i = 0; i < this.size(); i++) {
+            Optional<Integer> element = this.next();
+            if(element.isPresent() && test.apply(element.get())){
+                result = element;
+                break;
+            }
         }
-        return element;
+        return result;
     }
 }

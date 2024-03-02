@@ -153,4 +153,12 @@ public class FilteredCircularListTest {
         assertEquals(Optional.of(2), this.list.filteredNext((x) -> x % 2 == 0));
     }
 
+    @Test
+    public void filterListWithNonMatchingElements() {
+        for(int i = 1; i <= 5; i++) {
+            this.list.add(i);
+        }
+        assertEquals(Optional.empty(), this.list.filteredNext((x) -> x > 5));
+    }
+
 }
