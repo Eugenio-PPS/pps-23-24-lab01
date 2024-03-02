@@ -138,7 +138,6 @@ public class CircularListTest {
 
     @Test
     public void resetReturnsAtTheBeginningOfTheList() {
-    public void resetReturnsAtTheBeginningOfTheList() {
         this.list.add(1);
         this.list.add(2);
 
