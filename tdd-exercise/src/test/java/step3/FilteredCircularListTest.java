@@ -161,4 +161,9 @@ public class FilteredCircularListTest {
         assertEquals(Optional.empty(), this.list.filteredNext((x) -> x > 5));
     }
 
+    @Test
+    public void filterWorksWithEmptyList() {
+        assertEquals(Optional.empty(), this.list.filteredNext((x) -> x > 5));
+    }
+
 }
